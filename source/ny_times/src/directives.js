@@ -6,9 +6,9 @@
   };
 
   define([
-    "./directives/scrubber-tooltip"
+    "./directives/ny_times_feed"
   ], function (
-    ScrubberTooltip
+    NYTimesFeed
     ) {
     Directives.list = arguments;
     return Directives;

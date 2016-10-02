@@ -9,7 +9,7 @@
       //" ng-mouseleave='onMouseLeave()'" +
       //" ng-click='terminalClick($event)'>" +
 
-        "HELLOOOOOOOOOOOOOOOOOOOOOOOO" +
+        "<ny-times-feed></ny-times-feed>" +
       "</div>";
     return template;
   };

@@ -1,7 +1,8 @@
 (function () {
     define([], function () {
         return "" +
-            "<div>" +
+            "<div ng-click='doSomething()'>" +
+				"{{something}}" +
             "</div>";
     });
 }());

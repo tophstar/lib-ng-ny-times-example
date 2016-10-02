@@ -3,7 +3,9 @@ var nyTimesHarness = (function () {
          * Instance of the library
          * @type {[type]}
          */
-        nyTimes = null,
+    var nyTimes = null,
+        nyTimes2 = null,
+
 
         /**
          * Build the Library
@@ -24,6 +26,15 @@ var nyTimesHarness = (function () {
                 };
 
                 nyTimes = Library(options);
+
+            });
+
+            require(["ny_times"], function (Library) {
+                var options = {
+                    target: "#new-york-times-element-2"
+                };
+
+                nyTimes2 = Library(options);
 
             });
         }

@@ -281,7 +281,7 @@ define("angular", (function (global) {
       //" ng-mouseleave='onMouseLeave()'" +
       //" ng-click='terminalClick($event)'>" +
 
-        "HELLOOOOOOOOOOOOOOOOOOOOOOOO" +
+        "<ny-times-feed></ny-times-feed>" +
       "</div>";
     return template;
   };
@@ -391,19 +391,26 @@ define("angular", (function (global) {
 }());
 (function (global) {
     var Link = function (scope, element) {
+        scope.something = 'foooooooooooooooootooooo';
+
+        scope.doSomething = function () {
+            scope.something = 'new';
+        };
     };
 
-    define('ny_times/src/directives/scrubber-tooltip/link',["angular"],
+    define('ny_times/src/directives/ny-times-feed/link',["angular"],
         function (angular) {
-        Link.angular = angular;
-        Link.document = global.document;
-        return Link;
-    });
+            Link.angular = angular;
+            Link.document = global.document;
+            return Link;
+        }
+    );
 }(window));
 (function () {
-    define('ny_times/src/directives/scrubber-tooltip/template',[], function () {
+    define('ny_times/src/directives/ny-times-feed/template',[], function () {
         return "" +
-            "<div>" +
+            "<div ng-click='doSomething()'>" +
+				"{{something}}" +
             "</div>";
     });
 }());
@@ -419,13 +426,13 @@ define("angular", (function (global) {
         };
     };
 
-    define('ny_times/src/directives/scrubber-tooltip',[
-        "./scrubber-tooltip/link",
-        "./scrubber-tooltip/template"
+    define('ny_times/src/directives/ny_times_feed',[
+        "./ny-times-feed/link",
+        "./ny-times-feed/template"
     ], function (Link, Template) {
         ScrubberTooltip.Link = Link;
         ScrubberTooltip.Template = Template;
-        ScrubberTooltip.NAME = "scrubberTooltip";
+        ScrubberTooltip.NAME = "nyTimesFeed";
         return ScrubberTooltip;
     });
 }());
@@ -437,9 +444,9 @@ define("angular", (function (global) {
   };
 
   define('ny_times/src/directives',[
-    "./directives/scrubber-tooltip"
+    "./directives/ny_times_feed"
   ], function (
-    ScrubberTooltip
+    NYTimesFeed
     ) {
     Directives.list = arguments;
     return Directives;

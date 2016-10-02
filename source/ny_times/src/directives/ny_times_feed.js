@@ -9,12 +9,12 @@
     };
 
     define([
-        "./scrubber-tooltip/link",
-        "./scrubber-tooltip/template"
+        "./ny-times-feed/link",
+        "./ny-times-feed/template"
     ], function (Link, Template) {
         ScrubberTooltip.Link = Link;
         ScrubberTooltip.Template = Template;
-        ScrubberTooltip.NAME = "scrubberTooltip";
+        ScrubberTooltip.NAME = "nyTimesFeed";
         return ScrubberTooltip;
     });
 }());
