@@ -1,19 +1,10 @@
-/* global addResizeListener, alert */
-(function (global) {
-  var TermCtrl = function ($scope, $mainOptions) {
-    var angular = TermCtrl.angular,
-      require = TermCtrl.require,
-      mainContainer = $mainOptions.getMainContainer(),
-      getResourceUrl = TermCtrl.getResourceUrl($scope);
+(function () {
+  var MainCtrl = function ($scope, $mainOptions) {
+    var angular = MainCtrl.angular,
+      mainContainer = $mainOptions.getMainContainer();
 
     $scope.options = $mainOptions;
     $scope.mainContainer = mainContainer;
-
-    $scope.baseUrl = require.toUrl("");
-
-    function broadcast(event) {
-        $scope.$broadcast("main_" + event);
-    }
 
     var self = {
 
@@ -30,11 +21,9 @@
   define([
     "angular"
   ], function (angular) {
-
-    TermCtrl.require = global.require;
-    TermCtrl.angular = angular;
-    TermCtrl.NAME = "MainCtrl";
-    TermCtrl.$inject = ["$scope", "$mainOptions"];
-    return TermCtrl;
+    MainCtrl.angular = angular;
+    MainCtrl.NAME = "MainCtrl";
+    MainCtrl.$inject = ["$scope", "$mainOptions"];
+    return MainCtrl;
   });
-}(window));
+}());

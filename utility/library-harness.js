@@ -6,24 +6,24 @@ var nyTimesHarness = (function () {
         nyTimes = null,
 
         /**
-         * Build the Terminal
+         * Build the Library
          * @return {[type]} [description]
          */
-        buildTerminal = function () {
+        buildLibrary = function () {
             // Need to cache bust..
             require.config({
                 baseUrl: '',
                 paths: {
-                    "nyTimes": "scripts/nyTimes.js?cachebust=" + (new Date()).getTime()
+                    "ny_times": "../build/ny_times"//.js?cachebust=" + (new Date()).getTime()
                 }
             });
 
-            require(["nyTimes"], function (Terminal) {
-                var terminalOptions = {
+            require(["ny_times"], function (Library) {
+                var options = {
                     target: "#new-york-times-element"
                 };
 
-                terminal = Terminal(terminalOptions);
+                nyTimes = Library(options);
 
             });
         }
@@ -35,7 +35,7 @@ var nyTimesHarness = (function () {
          * @return {[type]} [description]
          */
         construct: function () {
-            buildTerminal();
+            buildLibrary();
         },
     };
 })();

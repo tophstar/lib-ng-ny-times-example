@@ -58,11 +58,15 @@
     NYTimes.Controllers(module);
     NYTimes.Directives(module);
 
-    var element = NYTimes.document.querySelector(options.getNYTimesElementSelector());
+    var element = NYTimes.document.querySelector(options.getMainElementSelector());
     var target = angular.element(element);
     angular.bootstrap(target, [NYTimes.MODULE]);
 
-    return NYTimes.MainCtrl.getApi();
+
+    //get the api defined in the main_ctrl controller object.
+    var mainApi = angular.element(target[0].childNodes[0]).controller().getApi();
+
+    return mainApi;
   };
 
   define(
@@ -87,6 +91,7 @@
               MainCtrl) {
 
       NYTimes.MODULE = "nytimes";
+      NYTimes.MODULE_DEPENDENCIES = [];
 
       NYTimes.document = global.document;
       NYTimes.angular = angular;

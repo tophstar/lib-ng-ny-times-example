@@ -1,13 +1,15 @@
-(function (opts) {
+(function () {
   
 
-  var Template = function (options) {
+  var Template = function (opts) {
     var template = "" +
-      "<div class='"+opts.getMainElementSelector()+"-template'" +
-        "ng-controller='MainCtrl' " +
+      "<div class='ny-times-template'" +
+        "ng-controller='MainCtrl'>" +
       //ng-mouseenter='onMouseEnter()'" +
       //" ng-mouseleave='onMouseLeave()'" +
       //" ng-click='terminalClick($event)'>" +
+
+        "HELLOOOOOOOOOOOOOOOOOOOOOOOO" +
       "</div>";
     return template;
   };

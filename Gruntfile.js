@@ -63,7 +63,7 @@ module.exports = function (grunt) {
           cleancss: false
         },
         files: {
-          "build/ny_times.css": "less/ny_times.less",
+          "build/ny_times.css": "less/import.less",
         }
       }
     }
@@ -86,5 +86,5 @@ module.exports = function (grunt) {
 
     //gitless and modernizr must happen before require.  These both create files used by require.
   grunt.registerTask("default", ["setup_build", "jshint", "requirejs:build", "uglify",
-      "less:terminal"]);
+      "less:ny_times"]);
 };
