@@ -1,6 +1,6 @@
 (function () {
   var Filters = function (module) {
-    module.filter(Filters.TotalTimeDisplay.NAME, Filters.TotalTimeDisplay);
+    //module.filter(Filters.TotalTimeDisplay.NAME, Filters.TotalTimeDisplay);
   };
 
   define([

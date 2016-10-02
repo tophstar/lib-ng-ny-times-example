@@ -1,14 +1,10 @@
 (function (global) {
   var Options = function (opts) {
-    var playerContainer,
+    var MainContainer,
         angular = Options.angular;
 
-    function isBoolean(ref) {
-      return ref === true || ref === false;
-    }
-
     var self = {
-      getTerminalElementSelector: function getPElementSelector() {
+      getMainElementSelector: function getMainElementSelector() {
         return opts.target;
       },
 
@@ -32,12 +28,12 @@
         }
       },
 
-      setTerminalContainer: function setTerminalContainer(container) {
-        playerContainer = container;
+      setMainContainer: function setMainContainer(container) {
+        MainContainer = MainContainer;
       },
 
-      getTerminalContainer: function getTerminalContainer() {
-        return playerContainer;
+      getMainContainer: function getMainContainer() {
+        return MainContainer;
       },
 
       toString: function toString() {

@@ -16,9 +16,9 @@ module.exports = function (grunt) {
     requirejs: {
       build: {
         options: {
-          name: "terminal",
+          name: "ny_times",
           baseUrl: "./source",
-          out: "./build/terminal.js",
+          out: "./build/ny_times.js",
           waitSeconds: 15,
           optimize: "none",
           optimizeCss: false,
@@ -52,18 +52,18 @@ module.exports = function (grunt) {
       },
       dist: {
         files: {
-          './build/terminal.min.js': ['./build/terminal.js']
+          './build/ny_times.min.js': ['./build/ny_times.js']
         }
       }
     },
 
     less: {
-      terminal: {
+      ny_times: {
         options: {
           cleancss: false
         },
         files: {
-          "build/terminal.css": "less/terminal.less",
+          "build/ny_times.css": "less/ny_times.less",
         }
       }
     }

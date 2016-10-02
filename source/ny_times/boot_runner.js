@@ -1,9 +1,10 @@
 (function () {
   var Boot = function (options) {
-    var terminal = Boot.Terminal(options);
+    var mainAPI = Boot.booter(options);
+    
     var self = {
-      getTerminal: function getTerminal() {
-        return terminal;
+      getMainAPI: function getMainAPI() {
+        return mainAPI;
       },
 
       toString: function toString() {
@@ -14,8 +15,8 @@
     return self;
   };
 
-  define(["./terminal_boot"], function (terminal) {
-    Boot.Terminal = terminal;
+  define(["./boot"], function (booter) {
+    Boot.booter = booter;
     return Boot;
   });
 }());

@@ -17,15 +17,6 @@
       }
 
       var self = {
-
-        videoError: function (error) {
-          var msg = error;
-          if (!angular.isString(error)) {
-            msg = error.toString();
-          }
-
-          errorCallback(11, "Video Error: " + msg);
-        }
       };
 
       return self;
