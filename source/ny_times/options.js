@@ -4,6 +4,15 @@
         angular = Options.angular;
 
     var self = {
+
+      getNYTimesApiKey: function getNYTimesApiKey () {
+        return opts.NYTimesAPIKey;
+      },
+
+      getDefaultNYTimesQuery: function getDefaultNYTimesQuery() {
+        return opts.NYTimesDefaultQuery;
+      },
+
       getMainElementSelector: function getMainElementSelector() {
         return opts.target;
       },

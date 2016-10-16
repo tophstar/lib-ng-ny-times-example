@@ -52,37 +52,55 @@
     });
 
 
-    NYTimes.Values(module);
-    NYTimes.Services(module);
-    NYTimes.Filters(module);
+    NYTimes.Constants(module);
     NYTimes.Controllers(module);
     NYTimes.Directives(module);
-
+    NYTimes.Filters(module);
+    NYTimes.Services(module);
+    NYTimes.Values(module);
+    
     var element = NYTimes.document.querySelector(options.getMainElementSelector());
     var target = angular.element(element);
-    angular.bootstrap(target, [NYTimes.MODULE]);
 
+
+
+    //angular.bootstrap(element, [NYTimes.MODULE]);
+    
 
     //get the api defined in the main_ctrl controller object.
-    var mainApi = angular.element(target[0].childNodes[0]).controller().getApi();
+    //var mainApi = angular.element(target[0].childNodes[0]).controller();
+    return {};//mainApi;
 
-    return mainApi;
+
+    /*var nyTimesApi = {
+
+      getApi: function getApi() {
+        var mainApi = angular.element(target[0].childNodes[0]).controller().getApi();
+        return mainApi;
+      },
+
+    };
+
+    return nyTimesApi;
+    */
   };
 
   define(
     [
       "angular",
-      "./src/template_renderer",
+      "./src/template-renderer",
+      "./src/constants",
       "./src/controllers",
       "./src/directives",
       "./src/services",
       "./src/values",
       "./src/filters",
-      "./src/controllers/main_ctrl"
+      "./src/controllers/main-ctrl"
     ],
 
     function (angular,
               TemplateRenderer,
+              Constants,
               Controllers,
               Directives,
               Services,
@@ -90,12 +108,13 @@
               Filters,
               MainCtrl) {
 
-      NYTimes.MODULE = "nytimes";
+      NYTimes.MODULE = "NYTimesApp";
       NYTimes.MODULE_DEPENDENCIES = [];
 
       NYTimes.document = global.document;
       NYTimes.angular = angular;
       NYTimes.TemplateRenderer = TemplateRenderer;
+      NYTimes.Constants = Constants;
       NYTimes.Controllers = Controllers;
       NYTimes.Directives = Directives;
       NYTimes.Services = Services;

@@ -16,9 +16,9 @@ module.exports = function (grunt) {
     requirejs: {
       build: {
         options: {
-          name: "ny_times",
+          name: "ny-times",
           baseUrl: "./source",
-          out: "./build/ny_times.js",
+          out: "./build/ny-times.js",
           waitSeconds: 15,
           optimize: "none",
           optimizeCss: false,
@@ -27,24 +27,30 @@ module.exports = function (grunt) {
           fileExclusionRegExp: /^\.|\.md$/,
 
           paths: {
-            "angular": "../bower_components/angular/angular",
-            "bootstrap": "../bower_components/angular-bootstrap/ui-bootstrap",
-            "dialogs": "../bower_components/dialogs/dialogs"
+            "angular": "empty:"//"../bower_components/angular/angular",
           },
 
           shim: {
-            "angular": {deps: [], exports: "angular"},
-            "bootstrap": {deps: [], exports: "bootstrap"},
-            "dialogs": {deps: [], exports: "dialogs"},
+            "angular": {deps: [], exports: "angular"}
           },
 
           priority: [
-            "angular",
-            "bootstrap",
-            "dialogs",
+            "angular"
           ]
         }
       }
+    },
+
+    babel: {
+        options: {
+            sourceMap: false,
+            presets: ['es2015']
+        },
+        dist: {
+            files: {
+                'build/ny-times.js': 'build/ny-times.js'
+            }
+        }
     },
 
     uglify: {
@@ -52,7 +58,7 @@ module.exports = function (grunt) {
       },
       dist: {
         files: {
-          './build/ny_times.min.js': ['./build/ny_times.js']
+          './build/ny-times.min.js': ['./build/ny-times.js']
         }
       }
     },
@@ -72,6 +78,7 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks("grunt-contrib-watch");
   grunt.loadNpmTasks("grunt-contrib-requirejs");
   grunt.loadNpmTasks("grunt-contrib-jshint");
+  grunt.loadNpmTasks("grunt-babel");
   grunt.loadNpmTasks("grunt-contrib-uglify");
   grunt.loadNpmTasks("grunt-contrib-less");
 
@@ -85,6 +92,6 @@ module.exports = function (grunt) {
   });
 
     //gitless and modernizr must happen before require.  These both create files used by require.
-  grunt.registerTask("default", ["setup_build", "jshint", "requirejs:build", "uglify",
+  grunt.registerTask("default", ["setup_build", "jshint", "requirejs:build",  "babel", "uglify",
       "less:ny_times"]);
 };

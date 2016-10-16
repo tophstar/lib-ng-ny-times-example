@@ -6,9 +6,21 @@
   };
 
   define([
-    "./directives/ny_times_feed"
+    "./directives/infinite-scroller",
+    "./directives/ny-times-feed",
+    "./directives/ny-times-filter-type-option.js",
+    "./directives/ny-times-filter-type",
+    "./directives/ny-times-filter",
+    "./directives/ny-times-sidebar",
+    "./directives/ny-times-story"
   ], function (
-    NYTimesFeed
+    InfiniteScroller,
+    NYTimesFeed,
+    NYTimesFilterTypeOption,
+    NYTimesFilterType,
+    NYTimesFilter,
+    NYTimesSidebar,
+    NYTimesStory
     ) {
     Directives.list = arguments;
     return Directives;

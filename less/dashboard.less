@@ -1,0 +1,67 @@
+/*
+ * Sidebar
+ */
+
+.sidebar {
+  position: @sidebarPosition;
+  display: block;
+  height: @sidebarHeight;
+  width: @sidebarWidth;
+  max-width: @sidebarMaxWidth;
+  padding: @sidebarPadding;
+
+  overflow-x: hidden;
+  overflow-y: auto;
+  
+  background-color: @sidebarBackgroundColor;
+  
+  ul.sidebar-navs{
+    list-style:none;
+    padding:@sidebarNavPadding;
+
+    li.sidebar-nav-option{
+      padding:@sidebarNavOptionPadding;
+      cursor: pointer;
+
+      h3{
+        margin:@sidebarNavOptionMargin;
+      }
+
+
+      &:hover{
+        background-color: @sidebarInactiveHoverBackgroundColor;
+      }
+
+      &.active-nav {
+        background-color: @sidebarActiveBackgroundColor; 
+        color: @sidebarActiveTextColor;
+
+        &:hover{
+          background-color:@sidebarActiveBackgroundColorHover;
+        }
+      }
+
+    }    
+  }
+
+  .ny-feed-count-summary{
+    padding-left:15px;
+  }
+
+}
+
+/*
+ * Main content
+ */
+
+.main {
+  padding: 0 20px;
+}
+@media (min-width: 768px) {
+  .main {
+    padding-left: @mainPaddingLeft;
+  }
+}
+.main .page-header {
+  margin-top: 0;
+}

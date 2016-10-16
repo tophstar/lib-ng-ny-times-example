@@ -1,0 +1,72 @@
+.ny-times-filter-type
+{
+	padding:0 0 20px 0;
+
+	h3{
+		margin: 0 0 20px 0;
+	}
+
+
+	.ny-times-filter-on-off-container{
+		margin:0 0 10px 0;
+
+		span{
+			text-transform: uppercase;
+			font-size:2em;
+			padding:10px;
+			cursor:pointer;
+
+			&.ny-times-filter-on{
+
+
+				&.active-option-on{
+					background-color: @filterActiveOnOffBackgroundColor;
+					color: @filterActiveOnOffOptionTextColor;
+
+					&:hover{
+						background-color: @filterActiveOnOffBackgroundColorHover;
+					}
+				}
+				&.active-option-off{
+
+					background-color: @filterOnOffBackgroundColor;
+
+					&:hover{
+						background-color: @filterInactiveOptionHoverBackgroundColor;
+					}
+
+				}
+
+			}
+
+			&.ny-times-filter-off {
+				&.active-option-off{
+					background-color: @filterActiveOnOffBackgroundColor;
+					color: @filterActiveOnOffOptionTextColor;
+
+					&:hover{
+						background-color: @filterActiveOnOffBackgroundColorHover;
+					}
+				}
+				&.active-option-on{
+
+					background-color: @filterOnOffBackgroundColor;
+
+					&:hover{
+						background-color: @filterInactiveOptionHoverBackgroundColor;
+					}
+
+				}
+			}
+		}
+	}
+
+	.ny-times-filter-options{
+		.ny-time-filter-type-option-repeater{
+			min-height:0;
+		}
+	}
+
+	@import 'filter-option';	
+}
+

@@ -27,6 +27,6 @@ requirejs.config({
   ],
 
   modules: [
-    {name: "terminal"}
+    {name: "ny-times"}
   ]
 });

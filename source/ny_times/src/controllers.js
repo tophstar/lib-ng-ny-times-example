@@ -5,7 +5,7 @@
     });
   };
 
-  define(["angular", "./controllers/main_ctrl"], function (angular, mainCTRL) {
+  define(["angular", "./controllers/main-ctrl"], function (angular, mainCTRL) {
     Controllers.MainCTRL = mainCTRL;
     Controllers.angular = angular;
     return Controllers;

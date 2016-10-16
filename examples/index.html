@@ -2,16 +2,162 @@
 <html>
 <head>
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, target-densitydpi=device-dpi" />
-    <title>CBTN Player Library Debug | CBTN Vendor</title>
-    <script src="../bower_components/jquery/dist/jquery.js"></script>
-    <script type="text/javascript" src="../bower_components/requirejs/require.js"></script>
+    <title>NY Times</title>
 
-    <script type="text/javascript" src="../utility/library-harness.js"></script>
+    <script type="text/javascript" src="../bower_components/requirejs/require.js"></script>
+    <script type="text/javascript" src="../bower_components/jquery/dist/jquery.js"></script>
+
+
+
+    <script type="text/javascript" src="../bower_components/angular/angular.js"></script>
+    
+    <!-- Animate and ui-bootstrap required for drop down -->
+    <script type="text/javascript" src="../bower_components/angular-animate/angular-animate.js"></script>
+    <script type="text/javascript" src="../bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+
+    <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../build/ny_times.css">
+
+    <!--script type="text/javascript" src="./infinite-scroll.js"></script-->
+    <script type="text/javascript" src="./example-harness.js"></script>
+
+    <style>
+      html {
+        overflow-y: scroll;
+      }
+
+      html body{
+          background-image: url('../examples/stardust_@2X.png');
+          background-repeat: repeat;
+          background-attachment: fixed;
+      }
+
+      #websiteHeader{
+        transition: background-color 0.3s ease;
+        background-color:rgba(255, 255,255,0.8);/*#f5f5f5;*/
+        margin-bottom:20px;
+        color:#555;
+      }
+
+      #websiteHeader:hover{
+        background-color:rgba(255, 255,255,1);
+      }
+
+      #headerTitle{
+        font-family:fontawesome;
+        font-size:37px;
+        letter-spacing:3px;
+        float:left;
+        margin-left:-15px;
+        cursor:pointer;
+      }
+
+      #headerBanner{
+        float:right;
+        font-weight: bold;  
+
+      }
+
+      #headerBanner a{
+        color: #555;
+      }
+
+      #headerBanner #headerLinks{
+        margin: 0;
+      }
+
+      #headerBanner #headerLinks li{
+        padding:18px 15px;
+        /*must be relative for dropdown menu absolute positioned ul */
+        position:relative;
+      }
+
+      #headerBanner #headerLinks .header-examples{
+        min-width:160px;
+        padding:18px;
+        /*must be relative for dropdown menu absolute positioned ul */
+        position:relative;
+      }
+
+      #headerBanner #headerLinks .header-examples li{
+        padding:18px;
+        /*must be relative for dropdown menu absolute positioned ul */
+        position:relative;
+      }
+
+
+
+      #headerBanner #headerLinks li:hover{
+        background-color: #428fff;
+      }
+
+      #headerBanner #headerLinks li span{
+        /*must be static for dropdown menu absolute positioned ul */
+        position:static;
+        cursor:pointer;
+      }
+
+      #headerBanner #headerLinks .dropdown-menu{
+        transition: background-color 0.3s ease;
+        background-color:rgba(255, 255,255,0.8);
+        border: none;
+        top: 100%;
+        left: 0;
+        border-radius: 0;
+        margin-top: 0px;
+        padding-top: 0px;
+        padding-bottom: 0px;
+      }
+
+      #headerBanner #headerLinks .dropdown-menu:hover{
+        background-color:rgba(255, 255,255,1);
+      }
+
+      #headerBanner #headerLinks .dropdown-menu li{
+        text-align:center;
+      }
+    </style>
 
 </head>
 <body>
-    <div id="new-york-times-element"></div>
+<div ng-controller='WebsiteCtrl' ng-cloak>
+  <nav id="websiteHeader">
+    <div class='container'>
+      <span ng-click='homeTitleClick()' id='headerTitle'>{{homeTitle}}</span>
+      <span id="headerBanner">
+        <ul id="headerLinks" class="list-inline">
+          <li class="header-examples" ng-controller='DropdownCtrl'>
+            <span uib-dropdown on-toggle="toggled(open)">
+              <span href id="simple-dropdown" uib-dropdown-toggle>
+                Library Examples
+              </span>
+              <ul class="dropdown-menu" uib-dropdown-menu aria-labelledby="simple-dropdown">      
+                <li ng-repeat="example in libraryExamples">
+                  <div>{{example}}</div>
+                </li>
+              </ul>
+            </span>
+          </li>
+          <li class="blog">
+            <a href="https://github.com/tophstar">GitHub</a>
+          </li>
+        </ul>
+      </span>
+    </div>
+  </nav>
 
-    <div id="new-york-times-element-2"></div>
+
+
+  <div id="new-york-times-container" class="container" ng-show="showNewYorkTimesContainer">
+    <div class="" id="new-york-times-element"></div>
+
+  	<!--div class="col-xs-6" id="new-york-times-element-2"></div-->
+  </div>
+
+  <div id="terminal-container" class="container" ng-show="showTerminalContainer">
+    Terminal Will Go Here...
+  </div>
+
+</div>
 </body>
 </html>
